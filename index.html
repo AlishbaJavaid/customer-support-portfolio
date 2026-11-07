@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alishba Javaid — Customer &amp; Technical Support</title>
+<meta name="description" content="Alishba Javaid — Customer and technical support professional with 5+ years of software QA experience in troubleshooting, issue documentation, and clear communication. Based in Lahore, Pakistan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F7FA;
+    --bg-panel:#FFFFFF;
+    --ink:#0F1F3D;
+    --ink-muted:#5A6B85;
+    --line:#DCE3ED;
+    --navy-deep:#0B1B33;
+    --navy-line:#1C3155;
+    --panel-text:#C7D2E3;
+    --accent:#0F766E;
+    --accent-dim:#DDF1EE;
+    --pass:#2E8B67;
+    --amber:#B4791F;
+    --amber-dim:#F3E7D2;
+    --radius:2px;
+    --maxw:1080px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  code, .mono{ font-family:'IBM Plex Mono',monospace; }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,241,239,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600; font-size:14px; letter-spacing:0.02em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{ width:8px;height:8px;background:var(--accent);border-radius:50%; display:inline-block; }
+  nav.links{ display:flex; gap:28px; }
+  nav.links a{
+    text-decoration:none; font-size:14px; color:var(--ink-muted); font-weight:500;
+    transition:color .15s;
+  }
+  nav.links a:hover{ color:var(--ink); }
+  .nav-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:var(--radius); padding:8px 10px; font-family:'IBM Plex Mono',monospace; cursor:pointer;}
+  .nav-hire{ padding:9px 16px; font-size:13px; }
+
+  @media (max-width:760px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--bg-panel); border-bottom:1px solid var(--line);
+      flex-direction:column; padding:16px 28px; gap:16px;
+      display:none;
+    }
+    nav.links.open{ display:flex; }
+    .nav-toggle{ display:block; }
+    .nav-inner{ gap:12px; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:72px 0 56px; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--accent); display:inline-block; }
+
+  .hero h1{
+    font-size:clamp(34px,5vw,52px); line-height:1.08; margin-bottom:20px;
+  }
+  .hero h1 em{ font-style:normal; color:var(--accent); }
+
+  .hero p.lede{
+    font-size:18px; color:var(--ink-muted); max-width:46ch; margin-bottom:32px;
+  }
+
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:500;
+    padding:13px 22px; border-radius:var(--radius); text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--bg); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 0 var(--line); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:1px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+
+  /* ---------- COVERAGE SNAPSHOT (signature element) ---------- */
+  .snapshot{
+    background:var(--navy-deep); border-radius:6px; overflow:hidden;
+    box-shadow:0 24px 48px -20px rgba(11,27,51,0.35);
+    border:1px solid var(--navy-line);
+  }
+  .snapshot-bar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px;
+    border-bottom:1px solid var(--navy-line);
+  }
+  .snapshot-bar span.dot-lg{ width:9px; height:9px; border-radius:50%; background:#2C4470; }
+  .snapshot-title{
+    margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7C90B8;
+  }
+  .snapshot-body{ padding:22px 20px; }
+  .snap-row{ margin-bottom:16px; }
+  .snap-row:last-child{ margin-bottom:0; }
+  .snap-top{ display:flex; justify-content:space-between; margin-bottom:6px; }
+  .snap-label{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--panel-text); }
+  .snap-level{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--pass); font-weight:600; }
+  .snap-track{ height:5px; background:var(--navy-line); border-radius:3px; overflow:hidden; }
+  .snap-fill{ height:100%; background:var(--pass); border-radius:3px; width:0; animation:fillBar 1s ease forwards; }
+  @keyframes fillBar{ to{ width:var(--w); } }
+
+  .snapshot-summary{
+    border-top:1px solid var(--navy-line); padding:14px 20px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:#7C90B8;
+    display:flex; justify-content:space-between;
+  }
+  .snapshot-summary strong{ color:var(--pass); }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:left;
+  }
+  @media (max-width:700px){ .stats-grid{ grid-template-columns:1fr 1fr; } }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif; font-size:34px; font-weight:600; color:var(--ink);
+  }
+  .stat-label{ font-size:13px; color:var(--ink-muted); margin-top:4px; }
+
+  /* ---------- SECTION shared ---------- */
+  section{ padding:88px 0; }
+  .sec-head{ margin-bottom:44px; max-width:640px; }
+  .sec-eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-muted);
+    text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px;
+  }
+  .sec-head h2{ font-size:clamp(26px,3.4vw,36px); }
+  .sec-head p{ color:var(--ink-muted); margin-top:12px; font-size:16px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color:var(--ink-muted); font-size:16px; margin:0 0 16px; }
+  .about-list{ list-style:none; margin:0; padding:0; }
+  .about-list li{
+    display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px;
+  }
+  .about-list li:first-child{ padding-top:0; }
+  .about-list .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--accent);
+    background:var(--accent-dim); padding:2px 7px; border-radius:3px; height:fit-content;
+    white-space:nowrap;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media (max-width:700px){ .skill-groups{ grid-template-columns:1fr; } }
+  .skill-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:6px; padding:22px;
+  }
+  .skill-card h3{
+    font-size:14px; font-family:'IBM Plex Mono',monospace; color:var(--ink-muted);
+    text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px; font-weight:600;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-size:13px; padding:6px 12px; border-radius:20px; background:var(--bg);
+    border:1px solid var(--line); color:var(--ink);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{ position:relative; }
+  .tl-item{
+    display:grid; grid-template-columns:120px 1fr; gap:28px;
+    padding:28px 0; border-top:1px solid var(--line);
+  }
+  .tl-item:first-child{ border-top:1px solid var(--line); }
+  @media (max-width:700px){ .tl-item{ grid-template-columns:1fr; gap:8px; } }
+  .tl-id{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;
+    padding-top:2px;
+  }
+  .tl-dates{ font-size:12px; color:var(--ink-muted); margin-top:4px; }
+  .tl-content h3{ font-size:19px; margin-bottom:2px; }
+  .tl-content .company{ font-size:14px; color:var(--ink-muted); margin-bottom:14px; }
+  .tl-content ul{ margin:0; padding-left:18px; color:var(--ink-muted); font-size:14.5px; }
+  .tl-content li{ margin-bottom:7px; }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:22px; align-items:start; }
+  @media (max-width:760px){ .proj-grid{ grid-template-columns:1fr; } }
+  .proj-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:6px;
+    padding:26px; display:flex; flex-direction:column; gap:14px;
+  }
+  .proj-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--amber);
+    background:var(--amber-dim); padding:3px 8px; border-radius:3px; width:fit-content;
+  }
+  .proj-card h3{ font-size:19px; }
+  .proj-card p{ color:var(--ink-muted); font-size:14.5px; margin:0; }
+  .proj-card ul{ margin:4px 0 0; padding-left:18px; color:var(--ink-muted); font-size:14px; }
+  .proj-card li{ margin-bottom:5px; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;
+    padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .edu-row h3{ font-size:17px; }
+  .edu-row span{ font-size:13px; color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ background:var(--navy-deep); border-radius:8px; padding:56px 40px; color:#fff; text-align:center; }
+  @media (max-width:600px){ .contact{ padding:40px 22px; } }
+  .contact .sec-eyebrow{ color:#7C8790; }
+  .contact h2{ color:#fff; font-size:clamp(28px,4vw,40px); margin-bottom:14px; }
+  .contact p{ color:#9AA6AB; max-width:46ch; margin:0 auto 32px; font-size:16px; }
+  .contact-links{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+  .contact .btn-primary{ background:var(--accent); color:#fff; }
+  .contact .btn-primary:hover{ box-shadow:0 6px 0 #1c5f45; }
+  .contact .btn-ghost{ border-color:#3A454C; color:#E5E9EA; }
+  .contact .btn-ghost:hover{ border-color:#7C8790; }
+
+  footer{
+    padding:32px 0 48px; text-align:center; font-size:13px; color:var(--ink-muted);
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- SUPPORT SAMPLES ---------- */
+  .sample-box{ border-left:3px solid var(--accent); padding:2px 0 2px 14px; margin:8px 0 4px; }
+  .sample-box p{ margin:0 0 8px; font-size:14px; color:var(--ink-muted); }
+  .sample-box ol{ margin:6px 0 8px; padding-left:18px; font-size:14px; color:var(--ink-muted); }
+  .sample-box strong{ color:var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span> ALISHBA JAVAID</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Products</a>
+      <a href="#samples">Work Samples</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary nav-hire" href="#contact">Hire Me</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Customer &amp; Technical Support · Lahore, Pakistan</div>
+        <h1>I help users get unstuck,<br>and find <em>what got them stuck.</em></h1>
+        <p class="lede">5+ years in software quality assurance: reproducing user-facing issues, documenting them clearly, and working with developers to get them fixed. Now bringing that to customer and technical support.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="https://docs.google.com/document/d/1BFv1QeWXwlDCJzOvqpTcr9su1Wkhb7NrfR219RlqX30/edit?usp=sharing" target="_blank" rel="noopener">View Resume</a>
+          <a class="btn btn-ghost" href="#samples">See my writing</a>
+        </div>
+      </div>
+
+      <div class="snapshot" aria-hidden="true">
+        <div class="snapshot-bar">
+          <span class="dot-lg"></span><span class="dot-lg"></span><span class="dot-lg"></span>
+          <span class="snapshot-title">support_snapshot.json</span>
+        </div>
+        <div class="snapshot-body">
+          <div class="snap-row">
+            <div class="snap-top"><span class="snap-label">Issue reproduction &amp; documentation</span><span class="snap-level">5+ YRS</span></div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-top"><span class="snap-label">Ticket tracking — JIRA / Zoho Projects</span><span class="snap-level">5+ YRS</span></div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-top"><span class="snap-label">Working with dev &amp; product teams</span><span class="snap-level">4 COMPANIES</span></div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-top"><span class="snap-label">Issues documented in JIRA</span><span class="snap-level">350+</span></div>
+          </div>
+        </div>
+        <div class="snapshot-summary">
+          <span>5+ yrs · 4 companies · 6 products</span>
+          <span><strong>350+</strong> bugs logged in JIRA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div><div class="stat-num">5+</div><div class="stat-label">Years in software QA</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">Companies, Agile teams</div></div>
+      <div><div class="stat-num">350+</div><div class="stat-label">Issues documented in JIRA</div></div>
+      <div><div class="stat-num">6</div><div class="stat-label">Live products tested</div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head">
+      <div class="sec-eyebrow">01 · About</div>
+      <h2>Listen, reproduce, explain, follow up</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a software QA engineer with over five years of experience testing web and mobile applications in Agile teams. Most of my work has been finding what is broken or confusing for users, reproducing it, and explaining it clearly so it gets fixed. That is also the core of good support: listen carefully, reproduce the problem, communicate clearly, and follow up until it is resolved.</p>
+        <p>Most recently, as Senior QA Engineer at CyberMart, I tested an eCommerce platform from the buyer's and seller's point of view, and helped reduce user-reported bugs by 30% and improve issue resolution time by 20%. I'm now looking to move into customer and technical support roles, where I can use my troubleshooting, documentation, and communication skills to help users directly.</p>
+      </div>
+      <ul class="about-list">
+        <li><span class="tag">BASE</span> Lahore, Pakistan</li>
+        <li><span class="tag">EDU</span> BBIT, University of the Punjab</li>
+        <li><span class="tag">CORE</span> Troubleshooting &amp; issue documentation</li>
+        <li><span class="tag">TOOLS</span> JIRA, Zoho Projects, Postman</li>
+        <li><span class="tag">SEEKING</span> Customer &amp; technical support roles</li>
+        <li><span class="tag">WORK</span> Open to remote</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head">
+      <div class="sec-eyebrow">02 · Skills</div>
+      <h2>How I help users and teams</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>Customer &amp; Technical Support</h3>
+        <div class="chip-row">
+          <span class="chip">Troubleshooting</span>
+          <span class="chip">Issue Reproduction</span>
+          <span class="chip">Ticket Triage &amp; Prioritization</span>
+          <span class="chip">Escalation to Engineering Teams</span>
+          <span class="chip">Follow-Up &amp; Resolution Tracking</span>
+          <span class="chip">Clear Written Communication</span>
+          <span class="chip">Customer-First Mindset</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <div class="chip-row">
+          <span class="chip">JIRA</span>
+          <span class="chip">Zoho Projects</span>
+          <span class="chip">Postman</span>
+          <span class="chip">Chrome DevTools</span>
+          <span class="chip">Basic SQL (MongoDB, PostgreSQL)</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Product &amp; Documentation</h3>
+        <div class="chip-row">
+          <span class="chip">Step-by-Step Issue Documentation</span>
+          <span class="chip">Test Cases</span>
+          <span class="chip">Bug Reports</span>
+          <span class="chip">Cross-Browser &amp; Device Checks</span>
+          <span class="chip">Web &amp; Mobile Apps (Android, iOS, Web)</span>
+          <span class="chip">Agile / Scrum</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <div class="chip-row">
+          <span class="chip">Communication</span>
+          <span class="chip">Problem Solving</span>
+          <span class="chip">Critical Thinking</span>
+          <span class="chip">Attention to Detail</span>
+          <span class="chip">Customer-Oriented</span>
+          <span class="chip">Collaboration</span>
+          <span class="chip">Adaptable</span>
+          <span class="chip">Time Management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head">
+      <div class="sec-eyebrow">03 · Experience</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-id">01</div>
+          <div class="tl-dates">Nov 2024 – Feb 2026</div>
+        </div>
+        <div class="tl-content">
+          <h3>Sr. Software Quality Assurance Engineer</h3>
+          <div class="company">CyberMart · Lahore</div>
+          <ul>
+            <li>Tested end-to-end eCommerce workflows (catalog, cart, checkout, payments, order management) from the buyer's and seller's point of view, helping reduce user-reported bugs by 30%.</li>
+            <li>Reproduced, documented, and triaged 150+ issues in JIRA with clear steps, screenshots, and severity, improving issue resolution time by 20%.</li>
+            <li>Worked with developers and product teams to get issues fixed quickly, and verified fixes before release.</li>
+            <li>Used Postman and database queries to find the cause of issues behind the screen (API responses and data accuracy).</li>
+            <li>Supported bi-weekly sprint releases through full regression cycles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-id">02</div>
+          <div class="tl-dates">Mar 2024 – Oct 2024</div>
+        </div>
+        <div class="tl-content">
+          <h3>Software Quality Assurance Engineer</h3>
+          <div class="company">WorkTech · Lahore</div>
+          <ul>
+            <li>Identified 100+ usability and functional issues across responsive web and mobile apps before release.</li>
+            <li>Managed issue tracking in Zoho Projects, improving bug-fix turnaround time by 15% through clear, detailed reports.</li>
+            <li>Found critical edge-case problems through exploratory testing before they could reach users.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-id">03</div>
+          <div class="tl-dates">Jan 2023 – Jan 2024</div>
+        </div>
+        <div class="tl-content">
+          <h3>Software Quality Assurance Engineer</h3>
+          <div class="company">Techanah · Lahore</div>
+          <ul>
+            <li>Logged and managed 200+ issues in JIRA with detailed reproduction steps and severity priorities.</li>
+            <li>Designed and ran test cases across 2 products, achieving 95% test case coverage.</li>
+            <li>Checked UI consistency across Chrome, Firefox, and Safari.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-id">04</div>
+          <div class="tl-dates">Dec 2020 – Dec 2022</div>
+        </div>
+        <div class="tl-content">
+          <h3>Software Quality Assurance Analyst</h3>
+          <div class="company">Interlink Multi Media · Lahore</div>
+          <ul>
+            <li>Created and executed 150+ test cases for mobile and web platforms, including admin dashboards and user portals.</li>
+            <li>Worked with frontend and backend teams to resolve issues before deployment.</li>
+            <li>Documented results in clear reports, helping reduce post-deployment issues by 25%.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="projects">
+    <div class="sec-head">
+      <div class="sec-eyebrow">04 · Products</div>
+      <h2>Products I've worked on</h2>
+      <p>Six live products across eCommerce, matrimonial, travel, and booking, tested from the user's point of view.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <span class="proj-tag">WEB</span>
+        <h3>Cybermart — eCommerce Platform</h3>
+        <p>Buyer site and seller portal.</p>
+        <ul>
+          <li>Tested product listings, cart, checkout, payments, and order management from the buyer's and seller's point of view.</li>
+          <li>Checked API responses and data accuracy to find the cause of issues behind the screen.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">ANDROID · IOS · WEB</span>
+        <h3>Dil Ka Rishta — Matrimonial App</h3>
+        <p>Mobile-first matrimonial platform.</p>
+        <ul>
+          <li>Tested onboarding, profile creation, search filters, and chat features.</li>
+          <li>Logged, tracked, and retested 50+ issues before release.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">ANDROID · IOS · WEB</span>
+        <h3>Reserval — Hotel &amp; Flight Booking</h3>
+        <p>Cross-platform booking application.</p>
+        <ul>
+          <li>Tested complete booking workflows, calendar integrations, and payment gateway functionality.</li>
+          <li>Retested fixes across releases to confirm issues were resolved.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">ANDROID · IOS · WEB</span>
+        <h3>Fayvo / Fayvo X — Experience Booking &amp; Social Platform</h3>
+        <p>Multi-module platform for posting and booking experiences.</p>
+        <ul>
+          <li>Verified experience posting, booking, and user feed features.</li>
+          <li>Ran smoke and regression checks for major production releases.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">ANDROID · IOS</span>
+        <h3>Ziyara Go — Travel Discovery App</h3>
+        <p>Location-based travel discovery application.</p>
+        <ul>
+          <li>Validated location features, maps integration, and responsiveness.</li>
+          <li>Tested across multiple devices and OS versions.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">ANDROID</span>
+        <h3>PlayScout — Activity Discovery Platform</h3>
+        <p>Android app for discovering and booking local activities.</p>
+        <ul>
+          <li>Tested activity search, booking, and location filtering.</li>
+          <li>Reported usability issues that helped improve the user experience.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SAMPLES -->
+  <section id="samples" style="padding-top:0;">
+    <div class="sec-head">
+      <div class="sec-eyebrow">05 · Work Samples</div>
+      <h2>How I write to customers and teams</h2>
+      <p>Support writing samples. These are examples I wrote, not messages from real customers.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <span class="proj-tag">SAMPLE · CUSTOMER REPLY</span>
+        <h3>Verification code not arriving</h3>
+        <div class="sample-box">
+          <p>Hi Sara,</p>
+          <p>Thanks for letting us know, and sorry for the trouble. Let's get you signed in.</p>
+          <p>First, please check your spam or junk folder for an email from us, and make sure your email address is spelled correctly. If it isn't there, wait two minutes and select "Resend code" once. If the code still doesn't arrive, reply with the email address you used and roughly what time you tried, and I'll look into it and update you today.</p>
+          <p>Best regards,<br>Alishba</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">SAMPLE · REPLY TEMPLATE</span>
+        <h3>Delayed order</h3>
+        <div class="sample-box">
+          <p>Hi Daniel,</p>
+          <p>I'm sorry your order is late. I know that's frustrating when you're waiting on it. I've checked order #1042: it shows as shipped, and the tracking link has the latest update: [tracking link].</p>
+          <p>If the tracking hasn't changed by [date], reply to this message and I'll raise it with our shipping team and keep you updated until it's sorted.</p>
+          <p>Thank you for your patience.<br>Alishba</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">SAMPLE · HELP ARTICLE</span>
+        <h3>Didn't get your verification code?</h3>
+        <div class="sample-box">
+          <p>If your code hasn't arrived, try these steps in order:</p>
+          <ol>
+            <li>Check your spam or junk folder.</li>
+            <li>Make sure the email address you entered is spelled correctly.</li>
+            <li>Wait two minutes, then select "Resend code" once.</li>
+            <li>Still nothing? Contact support with the email address you used and the time you tried.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">SAMPLE · ESCALATION</span>
+        <h3>Handing an issue to engineering</h3>
+        <div class="sample-box">
+          <p><strong>Title:</strong> Verification email not sent during signup</p>
+          <p><strong>Steps:</strong> Open signup, enter a valid new email, select "Send OTP", wait 5 minutes.</p>
+          <p><strong>Expected:</strong> An email with the code arrives within about a minute.</p>
+          <p><strong>Actual:</strong> The screen says "OTP sent", but no email arrives.</p>
+          <p><strong>Impact:</strong> New users can't finish signing up.</p>
+          <p><strong>Suggested priority:</strong> High</p>
+        </div>
+        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1sB4_6mMq38wZOlI__kNBqFAmIatIMgOYF0geXW6-j2s/edit?usp=sharing" target="_blank" rel="noopener" style="width:fit-content; margin-top:4px;">More issue report samples</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding-top:0;">
+    <div class="sec-head">
+      <div class="sec-eyebrow">06 · Education</div>
+      <h2>Foundation</h2>
+    </div>
+    <div class="edu-row">
+      <h3>Bachelors in Business &amp; Information Technology (BBIT)</h3>
+      <span>University of the Punjab, Lahore</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <div class="sec-eyebrow">07 · Contact</div>
+      <h2>Let's talk support</h2>
+      <p>Open to customer support and technical support roles. Based in Lahore, open to remote.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:alishbajavaid160@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1BFv1QeWXwlDCJzOvqpTcr9su1Wkhb7NrfR219RlqX30/edit?usp=sharing" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn btn-ghost" href="tel:+923324671406">Call Me</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/alishbajavaid-sqae" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Alishba Javaid · Customer &amp; Technical Support</footer>
+
+<script>
+  // Nav toggle for mobile
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
